@@ -1,46 +1,175 @@
 <!DOCTYPE html>
 <html>
-    <!-- MEMO: update me with `git checkout gh-pages && git merge master && git push origin gh-pages` -->
-    <head>
-        <meta charset="utf-8">
-        <title>Bootstrap Material</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="dist/css/ripples.min.css" rel="stylesheet">
-        <link href="dist/css/material-wfont.min.css" rel="stylesheet">
-        <link href="css/jasny-bootstrap.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <!-- Fixed navbar -->
- <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-  <a class="navmenu-brand" href="#">Brand</a>
-  <ul class="nav navmenu-nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
-  </ul>
-</nav>
-<div class="navbar navbar-default navbar-fixed-top">
-  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
-</div>
-      <hr>
+<!-- MEMO: update me with `git checkout gh-pages && git merge master && git push origin gh-pages` -->
 
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
-    </div> <!-- /container -->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="dist/js/ripples.min.js"></script>
-        <script src="dist/js/material.min.js"></script>
-        <script>
-            $(document).ready(function() {
-              $.material.init();
-            });
-        </script>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap Material</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="dist/css/ripples.min.css" rel="stylesheet">
+  <link href="dist/css/material-wfont.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+  <link href="dist/css/custom.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+  <nav>
+    <ul class="list-unstyled main-menu">
+
+      <!--Include your navigation here-->
+      <li class="text-right"><a href="#" id="nav-close">X</a>
+      </li>
+      <li><a href="index.html">Home <span class="icon"></span></a>
+      </li>
+      <li><a href="about.html">About <span class="icon"></span></a>
+      </li>
+      <li><a href="firearms.html">Firearms <span class="icon"></span></a>
+      </li>
+      <li><a href="pawn.html">Pawn &amp; Loan <span class="icon"></span></a>
+      </li>
+      <li><a href="services.html">Services <span class="icon"></span></a>
+      </li>
+      <li><a href="shop.html">Shop <span class="icon"></span></a>
+      </li>
+      <li><a href="contact.html">Contact <span class="icon"></span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="navbar navbar-material-bluegrey navbar-fixed-top">
+
+    <!--Include your brand here-->
+    <a class="navbar-brand" href="index.html">Double Eagle</a>
+    <div class="navbar-header pull-right">
+      <a id="nav-expander" class="nav-expander fixed">
+        <i class="fa fa-bars fa-lg white"></i>
+
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="container vertical-offset-50">
+    <div class="row">
+      <div class="well">
+        <h1>About</h2>
+
+        <p>Double Eagle Firearms &amp; Pawn, or Double Eagle for short, is a family owned and operated local business.  First establishe in 2008 and located in the historic Bryant Hardware building in downtown Arkansas City, KS.</p>
+
+        <p>Offering a clean, family friendly environment, Double Eagle provides:</p>
+
+          <ul>
+
+            <li>Fast, Easy Cash loans</li>
+
+            <li>Good Quality Used Merchandise</li>
+
+            <li>New and Used Firearms</li>
+
+            <li>Firearm Accessories</li>
+
+          </ul>
+
+          <p>Double Eagle is also a licensed Class 3 dealer.  We are happy to sell or transfer your NFA items, as well as assist you in filing out the necessary paperwork</p>
+
+          <p>Come visit Double Eagle Firearms &amp; Pawn!  We add new inventory daily, so you never know what you will find.  We have a helpful, friendly staff, a large selection, and some of the best prices in town.</p>
+
+      </div>
+
+  </div>
+
+  </div>
+
+
+
+  <footer>
+
+    <p>&copy; Double Eagle Firearms &amp; Pawn 2014</p>
+
+  </footer>
+
+  </div>
+
+  <!-- /container -->
+
+  <!-- End of page.  Scripts go below here. -->
+
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <script src="dist/js/ripples.min.js"></script>
+
+  <script src="dist/js/material.min.js"></script>
+
+  <script>
+
+    $(document).ready(function() {
+
+      $.material.init();
+
+
+
+      //Navigation Menu Slider
+
+      $('#nav-expander').on('click', function(e) {
+
+        e.preventDefault();
+
+        $('body').toggleClass('nav-expanded');
+
+      });
+
+      $('#nav-close').on('click', function(e) {
+
+        e.preventDefault();
+
+        $('body').removeClass('nav-expanded');
+
+      });
+
+
+
+      // Initialize navgoco with default options
+
+      $(".main-menu").navgoco({
+
+        caret: '<span class="caret"></span>',
+
+        accordion: false,
+
+        openClass: 'open',
+
+        save: true,
+
+        cookie: {
+
+          name: 'navgoco',
+
+          expires: false,
+
+          path: '/'
+
+        },
+
+        slide: {
+
+          duration: 300,
+
+          easing: 'swing'
+
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+
+
+
 </html>
