@@ -12,6 +12,12 @@
 
   <link href="dist/css/custom.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    #map-container {
+      height: 300px
+    }
+  </style>
 </head>
 
 <body>
@@ -50,45 +56,55 @@
       </a>
     </div>
   </div>
-  <hr>
-  <div class="container vertical-offset-50">
+<br>
+<br>
+<br>
+  <div id="map-container" class="jumbotron vertical-offset-50"></div>
+
+
+  <div class="container">
     <div class="row">
-      <div class="well">
-        <h1>About</h2>
+      <div class="col-md-4">
+        <img src="img/defront.jpg" class="img-responsive">
+        <p>Just look for the gold double eagle coin!</p>
+      </div>
+      <div class="col-lg-8">
+        <form name="sentMessage" action="<?php echo URL; ?>contact/sendmessage" method="post" class="well" id="contactForm" novalidate>
+          <legend>Contact Us</legend>
+          <div class="control-group">
+            <div class="controls">
+              <input type="text" class="form-control" placeholder="Full Name" id="name" name="contact_name" required data-validation-required-message="Please enter your name" />
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <input type="email" class="form-control" placeholder="Email" id="email" name="contact_email" required data-validation-required-message="Please enter your email" />
+            </div>
+          </div>
 
-        <p>Double Eagle Firearms &amp; Pawn, or Double Eagle for short, is a family owned and operated local business.  First establishe in 2008 and located in the historic Bryant Hardware building in downtown Arkansas City, KS.</p>
-
-        <p>Offering a clean, family friendly environment, Double Eagle provides:</p>
-
-          <ul>
-
-            <li>Fast, Easy Cash loans</li>
-
-            <li>Good Quality Used Merchandise</li>
-
-            <li>New and Used Firearms</li>
-
-            <li>Firearm Accessories</li>
-
-          </ul>
-
-          <p>Double Eagle is also a licensed Class 3 dealer.  We are happy to sell or transfer your NFA items, as well as assist you in filing out the necessary paperwork</p>
-
-          <p>Come visit Double Eagle Firearms &amp; Pawn!  We add new inventory daily, so you never know what you will find.  We have a helpful, friendly staff, a large selection, and some of the best prices in town.</p>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="10" cols="100" class="form-control" placeholder="Message" id="message" name="contact_message" required data-validation-required-message="Please enter your message" minlength="5" data-validation-minlength-message="Min 5 characters" maxlength="999"
+              style="resize:none"></textarea>
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <hr>
+          <button type="submit" class="btn btn-primary pull-right">Send</button>
+          <br />
+        </form>
 
       </div>
-
-  </div>
-
-  </div>
+    </div>
 
 
+    <footer>
 
-  <footer>
+      <p>&copy; Double Eagle Firearms &amp; Pawn 2014</p>
 
-    <p>&copy; Double Eagle Firearms &amp; Pawn 2014</p>
-
-  </footer>
+    </footer>
 
   </div>
 
@@ -103,9 +119,32 @@
   <script src="dist/js/ripples.min.js"></script>
 
   <script src="dist/js/material.min.js"></script>
-
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script>
+    function init_map() {
+      var var_location = new google.maps.LatLng(37.062004, -97.038593);
 
+      var var_mapoptions = {
+        center: var_location,
+        zoom: 14
+      };
+
+      var var_marker = new google.maps.Marker({
+        position: var_location,
+        map: var_map,
+        title: "Double Eagle"
+      });
+
+      var var_map = new google.maps.Map(document.getElementById("map-container"),
+        var_mapoptions);
+
+      var_marker.setMap(var_map);
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', init_map);
+  </script>
+  <script>
     $(document).ready(function() {
 
       $.material.init();
@@ -165,7 +204,6 @@
       });
 
     });
-
   </script>
 
 </body>

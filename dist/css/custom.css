@@ -1,3 +1,12 @@
+#indexjumbo.jumbotron {
+    background-image: url(/img/jumboplaceholder.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: center center;
+    color: white;
+    text-shadow: black  0.1em 0.3em 0.5em ;
+}
+
 .vertical-offset-50{
     padding-top:50px;
 }
